@@ -24,6 +24,12 @@ if [[ ! -f "./mvnw" || ! -x "./mvnw" ]]; then
   exit 127
 fi
 
+# Extra hardening: if a parent process invokes 'mvn' directly and PATH resolves to this repo,
+# ensure the local 'mvn' shim exists and is executable to redirect to ./mvnw
+if [[ -f "./mvn" && ! -x "./mvn" ]]; then
+  chmod +x ./mvn || true
+fi
+
 PROFILE="${1:-}"
 if [[ -n "$PROFILE" ]]; then
   exec ./mvnw spring-boot:run \

@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# Shim script to proxy any 'mvn' invocation to the Maven Wrapper './mvnw'.
+# This ensures environments that hardcode 'mvn' will still use the project-pinned Maven distribution.
+# Usage:
+#   ./mvn <args...>
+# Behavior:
+#   - Ensures ./mvnw exists and is executable.
+#   - Execs ./mvnw passing all provided arguments transparently.
+
+set -euo pipefail
+
+# Ensure mvnw is present
+if [[ ! -f "./mvnw" ]]; then
+  echo "ERROR: ./mvnw is missing. This project requires the Maven Wrapper; no global 'mvn' fallback." >&2
+  exit 127
+fi
+
+# Ensure mvnw is executable
+if [[ ! -x "./mvnw" ]]; then
+  chmod +x ./mvnw || true
+fi
+
+# Proxy to mvnw with all arguments
+exec ./mvnw "$@"
