@@ -76,7 +76,7 @@ Run both Back-end & Front-end in one place:
 
 ## Run Spring Boot application
 
-This project includes the Maven Wrapper (`./mvnw`) and targets Java 17 with Spring Boot 3.1.x.
+This project includes the Maven Wrapper (`./mvnw`) and targets Java 17 with Spring Boot 3.1.x. No global Maven installation is required.
 
 - Verify Maven Wrapper and Java:
 ```
@@ -94,3 +94,8 @@ Note: Requires a running PostgreSQL instance configured as in `src/main/resource
 ./mvnw spring-boot:run -Dspring-boot.run.profiles=dev -Dspring-boot.run.jvmArguments="-Dserver.port=3001 -Dserver.address=0.0.0.0"
 ```
 
+- Optional helper scripts (use Maven Wrapper under the hood):
+```
+./start.sh         # default PostgreSQL profile
+./start.sh dev     # H2 profile
+```
