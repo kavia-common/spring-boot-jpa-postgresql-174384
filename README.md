@@ -89,13 +89,13 @@ Prerequisites:
 
 - Run with PostgreSQL (default profile) on port 3001:
 ```
-./mvnw spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=3001 -Dserver.address=0.0.0.0"
+./mvnw spring-boot:run -Dspring-boot.run.arguments=--server.port=3001 --server.address=0.0.0.0
 ```
 Note: Requires a running PostgreSQL instance configured as in `src/main/resources/application.properties`.
 
 - Run with in-memory H2 (dev profile) on port 3001 (no PostgreSQL required):
 ```
-./mvnw spring-boot:run -Dspring-boot.run.profiles=dev -Dspring-boot.run.jvmArguments="-Dserver.port=3001 -Dserver.address=0.0.0.0"
+./mvnw spring-boot:run -Dspring-boot.run.profiles=dev -Dspring-boot.run.arguments=--server.port=3001 --server.address=0.0.0.0
 ```
 
 - Optional helper scripts (use Maven Wrapper under the hood):
