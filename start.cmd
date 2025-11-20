@@ -1,5 +1,6 @@
 @echo off
 REM Start script using Maven Wrapper to avoid dependency on global mvn
+REM Requires: JDK 21 installed and JAVA_HOME set to JDK 21
 REM Usage:
 REM   start.cmd           - default profile with PostgreSQL
 REM   start.cmd dev       - dev profile (H2)

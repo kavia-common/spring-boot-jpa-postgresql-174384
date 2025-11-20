@@ -76,7 +76,11 @@ Run both Back-end & Front-end in one place:
 
 ## Run Spring Boot application
 
-This project includes the Maven Wrapper (`./mvnw`) and targets Java 17 with Spring Boot 3.1.x. No global Maven installation is required.
+This project includes the Maven Wrapper (`./mvnw`) and targets Java 21 with Spring Boot 3.3.x. No global Maven installation is required.
+
+Prerequisites:
+- JDK 21 (e.g., Eclipse Temurin 21)
+- Maven Wrapper included (no separate Maven install required)
 
 - Verify Maven Wrapper and Java:
 ```
