@@ -75,7 +75,22 @@ Run both Back-end & Front-end in one place:
 > [Integrate Vue.js with Spring Boot Rest API](https://www.bezkoder.com/integrate-vue-spring-boot/)
 
 ## Run Spring Boot application
+
+This project includes the Maven Wrapper (`./mvnw`) and targets Java 17 with Spring Boot 3.1.x.
+
+- Verify Maven Wrapper and Java:
 ```
-mvn spring-boot:run
+./mvnw -v
+```
+
+- Run with PostgreSQL (default profile) on port 3001:
+```
+./mvnw spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=3001 -Dserver.address=0.0.0.0"
+```
+Note: Requires a running PostgreSQL instance configured as in `src/main/resources/application.properties`.
+
+- Run with in-memory H2 (dev profile) on port 3001 (no PostgreSQL required):
+```
+./mvnw spring-boot:run -Dspring-boot.run.profiles=dev -Dspring-boot.run.jvmArguments="-Dserver.port=3001 -Dserver.address=0.0.0.0"
 ```
 
