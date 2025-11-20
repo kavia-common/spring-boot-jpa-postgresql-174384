@@ -4,5 +4,5 @@
     "JAVA_TOOL_OPTIONS": "-XX:+UseContainerSupport"
   },
   "port": 3001,
-  "notes": "Kavia-specific start configuration to force using Maven Wrapper via run.sh"
+  "notes": "Kavia-specific start configuration to force using Maven Wrapper via run.sh. The preview entrypoint must honor this file and never invoke 'mvn' directly. run.sh ensures ./mvnw is executable and exits if missing (no fallback)."
 }
