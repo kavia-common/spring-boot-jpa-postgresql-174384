@@ -102,4 +102,6 @@ Note: Requires a running PostgreSQL instance configured as in `src/main/resource
 ```
 ./start.sh         # default PostgreSQL profile
 ./start.sh dev     # H2 profile
+bash ./run.sh      # unified preview/start entry (uses ./mvnw)
+bash ./run.sh dev  # run with 'dev' profile
 ```
