@@ -98,10 +98,10 @@ Note: Requires a running PostgreSQL instance configured as in `src/main/resource
 ./mvnw spring-boot:run -Dspring-boot.run.profiles=dev -Dspring-boot.run.arguments=--server.port=3001 --server.address=0.0.0.0
 ```
 
-- Optional helper scripts (use Maven Wrapper under the hood):
+- Optional helper scripts (always use Maven Wrapper; no global 'mvn' fallback):
 ```
-./start.sh         # default PostgreSQL profile
-./start.sh dev     # H2 profile
+./start.sh         # default PostgreSQL profile (uses ./mvnw)
+./start.sh dev     # H2 profile (uses ./mvnw)
 bash ./run.sh      # unified preview/start entry (uses ./mvnw)
-bash ./run.sh dev  # run with 'dev' profile
+bash ./run.sh dev  # run with 'dev' profile (uses ./mvnw)
 ```

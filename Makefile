@@ -3,6 +3,7 @@ SHELL := /bin/bash
 .PHONY: start start-dev verify-mvnw
 
 verify-mvnw:
+	@if [ ! -f "./mvnw" ]; then echo "ERROR: ./mvnw missing. No 'mvn' fallback allowed."; exit 127; fi
 	@if [ ! -x "./mvnw" ]; then chmod +x ./mvnw || true; fi
 
 start: verify-mvnw

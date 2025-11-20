@@ -7,8 +7,22 @@
 
 set -euo pipefail
 
+# Ensure this script is executable (helps in some environments copying without perms)
+chmod +x "$0" || true
+
 # Ensure mvnw is executable to avoid permission issues in preview environments
-chmod +x ./mvnw || true
+if [[ ! -x "./mvnw" ]]; then
+  # Try to set executable bit; if still missing or not present, exit with clear message.
+  chmod +x ./mvnw 2>/dev/null || true
+fi
+
+# Guard: never fallback to 'mvn'. If ./mvnw is missing or not executable, exit clearly.
+if [[ ! -f "./mvnw" || ! -x "./mvnw" ]]; then
+  echo "ERROR: Maven Wrapper './mvnw' is required but not found or not executable." >&2
+  echo "This environment is configured to use the Maven Wrapper only (no 'mvn' fallback)." >&2
+  echo "Please ensure './mvnw' exists in project root and is executable (chmod +x ./mvnw)." >&2
+  exit 127
+fi
 
 PROFILE="${1:-}"
 if [[ -n "$PROFILE" ]]; then

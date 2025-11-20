@@ -1,1 +1,6 @@
+# Ensure critical scripts are executable when checked out
 mvnw text eol=lf
+run.sh text eol=lf
+start.sh text eol=lf
+*.sh text eol=lf
+*.cmd text eol=crlf
