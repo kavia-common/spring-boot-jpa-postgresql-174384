@@ -98,12 +98,13 @@ If you use Maven Toolchains, ensure your `~/.m2/toolchains.xml` provides a JDK 2
 This project includes the Maven Wrapper (`./mvnw`) and targets Java 21 with Spring Boot 3.3.x. No global Maven installation is required.
 
 Prerequisites:
-- JDK 21 (e.g., Eclipse Temurin 21)
+- JDK 21 (e.g., Eclipse Temurin 21). The build enforces Java 21 via Maven Enforcer and will fail on older JDKs.
 - Maven Wrapper included (no separate Maven install required)
 
 Verify Maven Wrapper and Java:
 ```
 ./mvnw -v
+bash ./tools/check-java21.sh   # optional helper to validate JDK is 21+
 ```
 
 Build and run tests:
