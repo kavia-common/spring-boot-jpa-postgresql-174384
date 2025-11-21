@@ -1,9 +1,9 @@
 {
   "name": "spring-boot-jpa-postgresql",
-  "command": "bash ./run.sh",
+  "command": "./mvnw spring-boot:run -Dspring-boot.run.arguments=--server.port=3001 --server.address=0.0.0.0",
   "port": 3001,
   "env": {
     "JAVA_TOOL_OPTIONS": "-XX:+UseContainerSupport"
   },
-  "notes": "Preview must execute bash ./run.sh which enforces using ./mvnw and never plain 'mvn'."
+  "notes": "Primary start uses Maven Wrapper directly. You can also 'bash ./run.sh' for profile-based runs; both use ./mvnw. No system 'mvn' is used."
 }

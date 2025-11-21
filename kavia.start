@@ -1,8 +1,8 @@
 {
-  "command": "bash ./run.sh",
+  "command": "./mvnw spring-boot:run -Dspring-boot.run.arguments=--server.port=3001 --server.address=0.0.0.0",
   "env": {
     "JAVA_TOOL_OPTIONS": "-XX:+UseContainerSupport"
   },
   "port": 3001,
-  "notes": "Kavia-specific start configuration to force using Maven Wrapper via run.sh. The preview entrypoint must honor this file and never invoke 'mvn' directly. run.sh ensures ./mvnw is executable and exits if missing (no fallback). The effective run command is './mvnw spring-boot:run -Dspring-boot.run.arguments=--server.port=3001 --server.address=0.0.0.0'."
+  "notes": "Primary start uses Maven Wrapper directly. Preview must never invoke system 'mvn'. If permissions are restrictive, ensure './mvnw' is executable (chmod +x ./mvnw). The run.sh/start.sh remain available for convenience."
 }
