@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Unified start script to ensure preview uses Maven Wrapper (./mvnw) instead of global mvn
+# Shebang above is required for non-interactive runners.
 # Requires: JDK 21 (JAVA_HOME or java on PATH)
 # Usage:
 #   bash ./run.sh             # default profile with PostgreSQL

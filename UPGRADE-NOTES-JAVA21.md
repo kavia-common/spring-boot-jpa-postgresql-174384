@@ -34,6 +34,7 @@ Build validation:
 - Maven Surefire Plugin: 3.3.0
 - Maven Failsafe Plugin: 3.3.0
 - Spring Boot Maven Plugin: managed by Boot parent
+- Java release settings: <java.version>21</java.version>, <maven.compiler.release>21</maven.compiler.release> in pom.xml
 
 ## Notes on Toolchains
 

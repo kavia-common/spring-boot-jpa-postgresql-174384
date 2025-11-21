@@ -20,6 +20,8 @@
 
 # Standard Maven Wrapper launcher (Takari 0.5.6) with downloader fallback.
 # This file is intentionally committed to ensure wrapper usage is consistent.
+# Note: This project vendors .mvn/wrapper/maven-wrapper.jar to avoid network bootstrap.
+# No fallback to system 'mvn' is used anywhere; always invoke via this wrapper.
 
 set -eu
 

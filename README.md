@@ -2,7 +2,7 @@
 
 IMPORTANT: This repository must be built and run using the Maven Wrapper scripts (./mvnw or mvnw.cmd). Preview/start systems must never invoke the system 'mvn' binary. All provided start configurations are aligned to call ./mvnw directly.
 
-This repository includes the Maven Wrapper so you can build and run without a global Maven installation. Always use ./mvnw (or mvnw.cmd on Windows). The preview/start configuration (Procfile, kavia.start, start.json) invokes the Maven Wrapper directly and via run scripts to enforce using ./mvnw only. Do NOT use system 'mvn'.
+This repository includes the Maven Wrapper so you can build and run without a global Maven installation. Always use ./mvnw (or mvnw.cmd on Windows). The preview/start configuration (Procfile, kavia.start, start.json) invokes the Maven Wrapper directly and via run scripts to enforce using ./mvnw only. Do NOT use system 'mvn'. The Maven Wrapper JAR is vendored in .mvn/wrapper/maven-wrapper.jar and the distribution is pinned via .mvn/wrapper/maven-wrapper.properties so no network download is required to bootstrap Maven.
 
 For instruction, please visit:
 > [Spring Boot PostgreSQL with Maven example using Spring Data JPA](https://www.bezkoder.com/spring-boot-postgresql-example/)
