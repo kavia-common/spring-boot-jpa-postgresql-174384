@@ -123,6 +123,11 @@ Run with in-memory H2 (dev profile) on port 3001 (no PostgreSQL required):
 ```
 
 Optional helper scripts (always use Maven Wrapper; no global 'mvn' fallback):
+
+Preview/Start command used by all preview systems:
+- ./mvnw spring-boot:run -Dspring-boot.run.arguments=--server.port=3001 --server.address=0.0.0.0
+- Ensure ./mvnw is executable: chmod +x ./mvnw
+- No fallback to system 'mvn' anywhere.
 ```
 ./start.sh         # default PostgreSQL profile (uses ./mvnw)
 ./start.sh dev     # H2 profile (uses ./mvnw)
