@@ -1,6 +1,6 @@
 SHELL := /bin/bash
 
-.PHONY: start start-dev verify-mvnw
+.PHONY: start start-dev verify-mvnw build test clean
 
 verify-mvnw:
 	@if [ ! -f "./mvnw" ]; then echo "ERROR: ./mvnw missing. No 'mvn' fallback allowed."; exit 127; fi
@@ -12,3 +12,12 @@ start: verify-mvnw
 
 start-dev: verify-mvnw
 	./mvnw spring-boot:run -Dspring-boot.run.profiles=dev -Dspring-boot.run.arguments=--server.port=3001 --server.address=0.0.0.0
+
+build: verify-mvnw
+	./mvnw -DskipTests=false clean verify
+
+test: verify-mvnw
+	./mvnw -DskipTests=false test
+
+clean: verify-mvnw
+	./mvnw clean
