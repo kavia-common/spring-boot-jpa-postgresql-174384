@@ -20,5 +20,10 @@ if [[ ! -x "./mvnw" ]]; then
   chmod +x ./mvnw || true
 fi
 
+# Ensure this shim is executable as well (helps on some systems copying without x bit)
+if [[ ! -x "$0" ]]; then
+  chmod +x "$0" || true
+fi
+
 # Proxy to mvnw with all arguments
 exec ./mvnw "$@"
