@@ -22,6 +22,7 @@
 # This file is intentionally committed to ensure wrapper usage is consistent.
 # Note: This project vendors .mvn/wrapper/maven-wrapper.jar to avoid network bootstrap.
 # No fallback to system 'mvn' is used anywhere; always invoke via this wrapper.
+# Maven distribution pinned via .mvn/wrapper/maven-wrapper.properties to 3.9.6.
 
 set -eu
 
