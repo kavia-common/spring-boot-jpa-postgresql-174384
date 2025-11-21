@@ -27,9 +27,9 @@
     <postgresql.version>42.7.4</postgresql.version>
     <h2.version>2.2.224</h2.version>
 
-    <!-- Latest Surefire/Failsafe compatible with Java 21 -->
-    <maven.surefire.plugin.version>3.3.0</maven.surefire.plugin.version>
-    <maven.failsafe.plugin.version>3.3.0</maven.failsafe.plugin.version>
+    <!-- Surefire/Failsafe set to 3.2.x+ for Java 21 compatibility -->
+    <maven.surefire.plugin.version>3.2.5</maven.surefire.plugin.version>
+    <maven.failsafe.plugin.version>3.2.5</maven.failsafe.plugin.version>
     <maven.enforcer.plugin.version>3.5.0</maven.enforcer.plugin.version>
   </properties>
 
@@ -89,6 +89,16 @@
       </plugins>
     </pluginManagement>
     <plugins>
+      <!-- Ensure compiler is active even without pluginManagement inheritance -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.13.0</version>
+        <configuration>
+          <release>${maven.compiler.release}</release>
+        </configuration>
+      </plugin>
+
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
