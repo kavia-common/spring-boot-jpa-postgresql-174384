@@ -3,25 +3,20 @@ import java.io.*;
 import java.nio.channels.*;
 import java.util.Properties;
 
-/**
- * PUBLIC_INTERFACE
- * MavenWrapperDownloader downloads the Maven Wrapper JAR when not available,
- * allowing the project to build without a globally installed Maven.
- */
 public class MavenWrapperDownloader {
-
-    private static final String WRAPPER_VERSION = "0.5.6";
-    private static final String DEFAULT_DOWNLOAD_URL =
-            "https://repo.maven.apache.org/maven2/io/takari/maven-wrapper/" + WRAPPER_VERSION + "/maven-wrapper-" + WRAPPER_VERSION + ".jar";
-
-    public static void main(String[] args) {
+    // PUBLIC_INTERFACE
+    public static void main(String args[]) {
+        /** Downloads the maven-wrapper.jar to .mvn/wrapper if it's missing. */
         System.out.println("- Downloader started");
-        File baseDirectory = new File(args.length > 0 ? args[0] : ".");
-        System.out.println("- Using base directory: " + baseDirectory.getAbsolutePath());
+        String baseDirectory = System.getProperty("maven.multiModuleProjectDirectory");
+        if (baseDirectory == null) {
+            baseDirectory = new File(".").getAbsolutePath();
+        }
+        System.out.println("- Using base directory: " + baseDirectory);
 
         File mavenWrapperPropertyFile = new File(baseDirectory, ".mvn/wrapper/maven-wrapper.properties");
-        String url = DEFAULT_DOWNLOAD_URL;
-        if (mavenWrapperPropertyFile.exists()) {
+        String url = "https://repo.maven.apache.org/maven2/io/takari/maven-wrapper/0.5.6/maven-wrapper-0.5.6.jar";
+        if(mavenWrapperPropertyFile.exists()){
             FileInputStream mavenWrapperPropertyFileInputStream = null;
             try {
                 mavenWrapperPropertyFileInputStream = new FileInputStream(mavenWrapperPropertyFile);
@@ -29,10 +24,10 @@ public class MavenWrapperDownloader {
                 mavenWrapperProperties.load(mavenWrapperPropertyFileInputStream);
                 url = mavenWrapperProperties.getProperty("wrapperUrl", url);
             } catch (IOException e) {
-                System.out.println("- ERROR loading '" + mavenWrapperPropertyFile.getAbsolutePath() + "'");
+                System.out.println("- ERROR loading '" + mavenWrapperPropertyFile + "'");
             } finally {
                 try {
-                    if (mavenWrapperPropertyFileInputStream != null) {
+                    if(mavenWrapperPropertyFileInputStream != null) {
                         mavenWrapperPropertyFileInputStream.close();
                     }
                 } catch (IOException e) {
@@ -42,11 +37,10 @@ public class MavenWrapperDownloader {
         }
         System.out.println("- Downloading from: " + url);
 
-        File outputFile = new File(baseDirectory.getAbsolutePath(), ".mvn/wrapper/maven-wrapper.jar");
-        File parentDir = outputFile.getParentFile();
-        if (!parentDir.exists()) {
-            if (!parentDir.mkdirs()) {
-                System.out.println("- ERROR creating output directory '" + parentDir.getAbsolutePath() + "'");
+        File outputFile = new File(baseDirectory, ".mvn/wrapper/maven-wrapper.jar");
+        if(!outputFile.getParentFile().exists()) {
+            if(!outputFile.getParentFile().mkdirs()) {
+                System.out.println("- ERROR creating output directory '" + outputFile.getParentFile() + "'");
             }
         }
         System.out.println("- Downloading to: " + outputFile.getAbsolutePath());
@@ -74,11 +68,11 @@ public class MavenWrapperDownloader {
         }
         URL website = new URL(urlString);
         ReadableByteChannel rbc;
-        try (InputStream in = website.openStream()) {
-            rbc = Channels.newChannel(in);
-            try (FileOutputStream fos = new FileOutputStream(destination)) {
-                fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
-            }
-        }
+        FileOutputStream fos;
+        rbc = Channels.newChannel(website.openStream());
+        fos = new FileOutputStream(destination);
+        fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
+        fos.close();
+        rbc.close();
     }
 }

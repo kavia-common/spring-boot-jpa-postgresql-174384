@@ -20,6 +20,7 @@
   <properties>
     <!-- Target Java 21 -->
     <java.version>21</java.version>
+    <!-- Use --release 21; if toolchains configured, compiler will use JDK 21 toolchain -->
     <maven.compiler.release>21</maven.compiler.release>
 
     <!-- Pin driver and plugin versions where not managed by Boot -->

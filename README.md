@@ -1,4 +1,6 @@
-# Spring Boot JPA PostgreSQL example with Maven
+# Spring Boot JPA PostgreSQL example with Maven (Wrapper-enabled)
+
+This repository includes the Maven Wrapper so you can build and run without a global Maven installation. Always use ./mvnw (or mvnw.cmd on Windows).
 
 For instruction, please visit:
 > [Spring Boot PostgreSQL with Maven example using Spring Data JPA](https://www.bezkoder.com/spring-boot-postgresql-example/)
