@@ -1,6 +1,8 @@
-# Ensure critical scripts are executable when checked out
-mvnw text eol=lf
-run.sh text eol=lf
-start.sh text eol=lf
-*.sh text eol=lf
-*.cmd text eol=crlf
+# Ensure wrapper and shell scripts are treated as executable on checkout
+mvnw        text eol=lf
+mvnw.cmd    text eol=crlf
+mvn         text eol=lf
+run.sh      text eol=lf
+start.sh    text eol=lf
+*.sh        text eol=lf
+*.cmd       text eol=crlf
