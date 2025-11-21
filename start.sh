@@ -13,7 +13,7 @@ fi
 
 PROFILE="${1:-}"
 if [[ -n "$PROFILE" ]]; then
-  ./mvnw spring-boot:run -Dspring-boot.run.profiles="$PROFILE" -Dspring-boot.run.arguments="--server.port=3001 --server.address=0.0.0.0"
+  exec ./mvnw spring-boot:run -Dspring-boot.run.profiles="$PROFILE" -Dspring-boot.run.arguments="--server.port=3001 --server.address=0.0.0.0"
 else
-  ./mvnw spring-boot:run -Dspring-boot.run.arguments="--server.port=3001 --server.address=0.0.0.0"
+  exec ./mvnw spring-boot:run -Dspring-boot.run.arguments="--server.port=3001 --server.address=0.0.0.0"
 fi

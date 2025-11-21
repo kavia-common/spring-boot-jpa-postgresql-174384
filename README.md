@@ -1,6 +1,8 @@
 # Spring Boot JPA PostgreSQL example with Maven (Wrapper-enabled)
 
-This repository includes the Maven Wrapper so you can build and run without a global Maven installation. Always use ./mvnw (or mvnw.cmd on Windows). The preview/start configuration (Procfile, kavia.start, start.json) invokes bash ./run.sh which enforces using ./mvnw only.
+IMPORTANT: This repository must be built and run using the Maven Wrapper scripts (./mvnw or mvnw.cmd). Preview/start systems must never invoke the system 'mvn' binary. All provided start configurations are aligned to call ./mvnw directly.
+
+This repository includes the Maven Wrapper so you can build and run without a global Maven installation. Always use ./mvnw (or mvnw.cmd on Windows). The preview/start configuration (Procfile, kavia.start, start.json) invokes the Maven Wrapper directly and via run scripts to enforce using ./mvnw only. Do NOT use system 'mvn'.
 
 For instruction, please visit:
 > [Spring Boot PostgreSQL with Maven example using Spring Data JPA](https://www.bezkoder.com/spring-boot-postgresql-example/)
